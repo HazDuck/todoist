@@ -1,4 +1,5 @@
 import React from 'react'
+import { Checkbox } from '../components/Checkbox'
 
 export const Tasks = () => {
   const tasks = []
