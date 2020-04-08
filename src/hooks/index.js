@@ -51,7 +51,7 @@ export const useTasks = (selectedProject) => {
           : newTasks.filter(task => task.archived !== true)
       )
 
-      setArchivedTask(newTask.filter(task => task.archived !== false))
+      setArchivedTask(newTasks.filter(task => task.archived !== false))
     
     })
     //use effect returns a called function
