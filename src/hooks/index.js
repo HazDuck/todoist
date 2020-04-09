@@ -59,6 +59,7 @@ export const useTasks = (selectedProject) => {
 
   }, [selectedProject])
 
+  //this custom hook return the value and the means to set it in an object
   return { tasks, archivedTasks }
 }
 
@@ -66,7 +67,7 @@ export const useTasks = (selectedProject) => {
 //this only grabs projects once
 export const useProjects = () => {
   const [projects, setProjects] = useState([])
-
+  
   useEffect(() => {
     firebase
     .firestore()
@@ -87,6 +88,7 @@ export const useProjects = () => {
       }
     })
   }, [projects])
-
+  
+  //this custom hook return sthe value and the means to set it in an object
   return { projects, setProjects }
 }
