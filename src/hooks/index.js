@@ -35,12 +35,10 @@ export const useTasks = (selectedProject) => {
 
     //using firebase's onSnapshot to get info from firestore docs-- looks like its an array of objects
     unsubscribe = unsubscribe.onSnapshot(snapshot => {
-      console.log(snapshot, 'snapshot')
       const newTasks = snapshot.docs.map(task => ({
         id: task.id,
         ...task.data(),
       }))
-      console.log(newTasks, 'newtasks')
 
       //filter to only show tasks that appear in next 7 days
       setTasks(

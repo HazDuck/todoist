@@ -10,7 +10,7 @@ import React, { createContext, useContext, useState } from 'react';
 export const SelectedProjectContext = createContext();
 
 export const SelectedProjectProvider = ({children}) => {
-  const { selectedProject, setSelectedProject } = useState('INBOX')
+  const [selectedProject, setSelectedProject] = useState('INBOX')
   return (
     //pass in an object of values so i can pick out the value i want
     <SelectedProjectContext.Provider value={{selectedProject, setSelectedProject}}>

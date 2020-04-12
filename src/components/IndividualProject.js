@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { FATrashAlt, FaTrashAlt, FaDivide } from 'react-icons/fa'
 import { useProjectsValue, useSelectedProjectValue } from '../context/index'
-export { firebase } from '../firebase'
+import { firebase } from '../firebase'
 
 export const IndividualProject = ({project}) => {
   const [showConfirm, setShowConfirm] = useState(false)
   const { projects, setProjects } = useProjectsValue()
   const { setSelectedProject } = useSelectedProjectValue()
 
-  const deleteProject = (docId, firebase) => {
+  const deleteProject = (docId) => {
     firebase
     .firestore()
     .collection('projects')
@@ -31,8 +31,8 @@ export const IndividualProject = ({project}) => {
       >
         <FaTrashAlt />
         {showConfirm && (
-          <div className="project-delete-modal">
-            <div className="project-delete-modal__inner">
+          <div className="">
+            <div className="">
               <p>Are you sure you want to delete this project?</p>
               <button
                 onClick={()=>deleteProject(project.docId)}  

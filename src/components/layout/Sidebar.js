@@ -9,7 +9,9 @@ import { Projects } from '../Projects'
 import { AddProject } from '../AddProject';
 
 export const Sidebar = () => {
+  //syntax for custom hook (i assume can use array if an array is returned in the hook)
   const { setSelectedProject } = useSelectedProjectValue()
+  //syntax for standard hooks
   const [active, setActive] = useState('inbox')
   const [showProjects, setShowProjects] = useState(true)
 
