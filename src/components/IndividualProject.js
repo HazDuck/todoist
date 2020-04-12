@@ -34,14 +34,12 @@ export const IndividualProject = ({project}) => {
           <div className="">
             <div className="">
               <p>Are you sure you want to delete this project?</p>
-              <button
-                onClick={()=>deleteProject(project.docId)}  
-              >
+              <button onClick={()=>deleteProject(project.docId)}>
                 Delete
-                <span onClick={()=> {
-                  setShowConfirm(!showConfirm)
-                }}>Cancel</span>
               </button>
+              <span onClick={()=> {setShowConfirm(!showConfirm)}}>
+                Cancel
+              </span>
             </div>
           </div>
         )
