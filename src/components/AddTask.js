@@ -1,0 +1,79 @@
+import React, { useState } from 'react';
+import { FaRegListAlt, FaReCalendarListAlt } from 'react-icons/fa'
+import moment from 'moment'
+import { firebase } from '../firebase'
+import { useSelectedProjectValue } from '../context'
+
+export const AddTask = ({
+  showAddTaskMain = true, 
+  shouldShowMain = false, 
+  showQuickAddTask,
+  setShowQuickAddTask
+}) => {
+
+  const [task, setTask] = useState('')
+  const [taskDate, setTaskDate] = useState('')
+  const [project, setProject] = useState('')
+  const [showMain, setShowMain] = useState(shouldShowMain)
+  const [showProjectOverlay, setShowProjectOverlay] = useState(false)
+  const [showTaskDate, setShowTaskDate] = useState(false)
+
+  const { selectedProject } = useSelectedProjectValue()
+
+  const addTask = () => {
+    //new syntax - if project is true or selectedProject is true assign the value to projectId
+    const projectId = project || selectedProject
+    let collatedDate = ''
+
+    if (projectId === 'TODAY') {
+      collatedDate = moment().format('DD/MM/YYYY')
+    } else if (projectId === 'NEXT_7') {
+      collatedDate = moment()
+        .add(7, 'days')
+        .format('DD/MM/YYYYY')
+    } 
+    return (
+      task && projectId && 
+        firebase
+        .firestore()
+        .collection('tasks')
+        .add({
+          archived: false, 
+          //new syntax --> the below is the same as saying projectId: projectId
+          projectId,
+          task, 
+          date: collatedDate || taskDate,
+          userId : '12345'
+        })
+        //clear evertthing so user knows its been added
+        .then(()=> {
+          setTask('')
+          setProject('')
+          setShowMain('')
+          setShowProjectOverlay(false)
+        })
+    )
+  }
+
+  return (
+    <div
+      className={showQuickAddTask ? 'add-task__overlay' : 'add-task'}
+      data-testid="add-task-comp"
+    >
+      {showAddTaskMain && 
+      //remember its an if about an parathesis wrapping the return below
+        (
+          <div
+            className='add-task__shallow'
+            data-testid="show-main-action"
+            onClick={()=>{
+              setShowMain(!showMain)
+            }}
+          >
+            <span className="add-task__plus">+</span>
+            <span className="add-task__text">Add Task</span>
+          </div>
+        )}
+    </div>
+    )
+  } 

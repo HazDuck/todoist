@@ -16,6 +16,7 @@ export const AddProject = ({ shouldShow = false }) => {
       .firestore()
       .collection('projects')
       .add({
+        //new syntax --> same as saying projectId: projectId -- pretty gnarly
         projectId,
         name: projectName,
         userId: '12345'
