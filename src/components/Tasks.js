@@ -8,7 +8,11 @@ import { useSelectedProjectValue, useProjectsValue } from '../context'
 export const Tasks = () => {
   const { selectedProject } = useSelectedProjectValue()
   const { projects } = useProjectsValue()
-  const { tasks, archivedTasks } = useTasks('selectedProject')
+  const { tasks } = useTasks(
+    selectedProject
+  )
+
+  console.log('selectedProject', selectedProject)
 
   let projectName = ''
 
@@ -28,7 +32,6 @@ export const Tasks = () => {
   }, [])
 
   console.log('tasks ', tasks)
-  console.log('archievedTasks ', archivedTasks)
 
   return (
     <div className="tasks" data-testid="tasks">

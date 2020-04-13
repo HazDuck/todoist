@@ -5,7 +5,7 @@ export const Checkbox = ({ id }) => {
   const archiveTask = () => {
     firebase
       .firestore()
-      .colleciton('tasks')
+      .collection('tasks')
       .doc(id)
       .update({
         archived: true
