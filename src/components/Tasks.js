@@ -8,24 +8,27 @@ import { useSelectedProjectValue, useProjectsValue } from '../context'
 export const Tasks = () => {
   const { selectedProject } = useSelectedProjectValue()
   const { projects } = useProjectsValue()
-  const { tasks } = useTasks('selectedProject')
+  const { tasks, archivedTasks } = useTasks('selectedProject')
 
   let projectName = ''
 
   //only grab custom projects not the premade ones
-  if (projects && selectedProject && !collatedTasks) {
+  if (projects && selectedProject && !collatedTasksExist(selectedProject)) {
     projectName = getTitle(projects, selectedProject).name
-    console.log('projectName 1:', projectName)
+    // console.log('projectName 1:', projectName)
   }
 
   if (collatedTasksExist(selectedProject) && selectedProject) {
     projectName = getCollatedTitle(collatedTasks, selectedProject).name
-    console.log('projectName 2:', projectName)
+    // console.log('projectName 2:', projectName)
   }
   
   useEffect(() => {
     document.title = `${projectName}: Todoist`
   }, [])
+
+  console.log('tasks ', tasks)
+  console.log('archievedTasks ', archivedTasks)
 
   return (
     <div className="tasks" data-testid="tasks">
