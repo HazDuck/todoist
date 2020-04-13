@@ -267,7 +267,7 @@
 
     .sidebar__generic {
       li {
-        line-height: 1.8;
+        line-height: 2;
       }
     }
   
@@ -356,7 +356,6 @@
       display: -ms-flexbox;
       display: flex;
       border-bottom: $generic-border;
-      padding-left: 10px;
       cursor: pointer;
   
       span {
