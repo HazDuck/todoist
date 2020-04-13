@@ -254,6 +254,7 @@
     width: 266px;
     height: calc(100vh);
     padding-top: 74px;
+    padding-left: 10px;
     position: fixed;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -262,6 +263,12 @@
   
     @include mq('900px') {
       display: none;
+    }
+
+    .sidebar__generic {
+      li {
+        line-height: 1.8;
+      }
     }
   
     li {
