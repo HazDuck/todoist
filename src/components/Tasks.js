@@ -13,8 +13,6 @@ export const Tasks = () => {
     selectedProject
   )
 
-  console.log('selectedProject', selectedProject)
-
   let projectName = ''
 
   //only grab custom projects not the premade ones
@@ -31,8 +29,6 @@ export const Tasks = () => {
   useEffect(() => {
     document.title = `${projectName}: Todoist`
   }, [])
-
-  console.log('tasks ', tasks)
 
   return (
     <div className="tasks" data-testid="tasks">

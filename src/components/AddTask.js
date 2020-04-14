@@ -4,6 +4,7 @@ import moment from 'moment'
 import { firebase } from '../firebase'
 import { useSelectedProjectValue } from '../context'
 import { ProjectOverlay } from './ProjectOverlay';
+import { TaskDate } from './TaskDate';
 
 export const AddTask = ({
   showAddTaskMain = true, 
@@ -99,8 +100,13 @@ export const AddTask = ({
             <ProjectOverlay 
               setProject={setProject} 
               showProjectOverlay={showProjectOverlay} 
-              setShowProjectOverlay={setShowProjectOverlay }/>
-            <p>TaskDate here</p>
+              setShowProjectOverlay={setShowProjectOverlay}
+            />
+            <TaskDate 
+              setTaskDate={setTaskDate} 
+              showTaskDate={showTaskDate} 
+              setShowTaskDate={setShowTaskDate}
+            />
             <input 
               className="add-task__content"
               data-testid="add-task-content"
