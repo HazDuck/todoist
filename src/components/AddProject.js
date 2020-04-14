@@ -28,7 +28,6 @@ export const AddProject = ({ shouldShow = false }) => {
         setShow(false)
       })
 
-      console.log(show, 'show')
   //remember this is how you do a react form! as i always forget
   return (
     <div className="add-project" data-testid="add-project">
@@ -66,7 +65,6 @@ export const AddProject = ({ shouldShow = false }) => {
         <span 
         className="add-project__plus"
         onClick={()=> {
-          console.log(show)
           setShow(!show)}}
         >+</span>
         <span
