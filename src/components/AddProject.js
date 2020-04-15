@@ -68,6 +68,7 @@ export const AddProject = ({ shouldShow = false }) => {
           setShow(!show)}}
         >+</span>
         <span
+          aria-label="Add project"
           data-testid="add-project-action"
           className="add-project__text"
         >

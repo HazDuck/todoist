@@ -22,13 +22,15 @@ export const Header = ({ darkMode, setDarkMode }) => {
                 setShowQuickAddTask(true)
                 setShouldShowMain(true)
               }}
-            >
+              aria-label="Quick add task"
+              >
               +
             </li>
             <li 
               className="settings__darkmode" 
               data-testid="dark-mode-action"
               onClick={()=> setDarkMode(!darkMode)}
+              aria-label="Dark mode on/off"
               >
               <FaPizzaSlice/>
             </li>
