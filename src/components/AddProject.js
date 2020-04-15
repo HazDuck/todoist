@@ -7,7 +7,7 @@ export const AddProject = ({ shouldShow = false }) => {
 
   const [projectName, setProjectName] = useState('')
   const [show, setShow] = useState(shouldShow)
-  const { setProjects } = useProjectsValue()
+  const { setProjects, projects } = useProjectsValue()
   const projectId = generatePushId() 
 
   const addProject = () => 
@@ -23,7 +23,7 @@ export const AddProject = ({ shouldShow = false }) => {
       })
       .then(()=> {
         //trick to call firebase and pass it an empty to kick everything off
-        setProjects([])
+        setProjects([...projects])
         setProjectName('')
         setShow(false)
       })

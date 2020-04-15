@@ -31,8 +31,8 @@ export const IndividualProject = ({project}) => {
       >
         <FaTrashAlt />
         {showConfirm && (
-          <div className="">
-            <div className="">
+          <div className="project-delete-modal">
+            <aside className="project-delete-modal__inner">
               <p>Are you sure you want to delete this project?</p>
               <button onClick={()=>deleteProject(project.docId)}>
                 Delete
@@ -40,7 +40,7 @@ export const IndividualProject = ({project}) => {
               <span onClick={()=> {setShowConfirm(!showConfirm)}}>
                 Cancel
               </span>
-            </div>
+            </aside>
           </div>
         )
 
