@@ -27,14 +27,17 @@ describe('<Checkbox/>', ()=> {
     it('renders the task checkbox', ()=>{
       const { queryByTestId, debug } = render(<Checkbox id="1"/>)
 
-      //renders out the full component
+      //renders out the full component in the console
       // debug()
-      
+
+      //checks that the componen
       expect(queryByTestId('checkbox-action')).toBeTruthy()
     })
-  })
-  describe('Failure', ()=> {
-
+    describe('renders the tasks checkbox and accepts a click', ()=> {
+      const { queryByTestId, debug } = render(<Checkbox id="1"/>)
+      expect(queryByTestId('checkbox-action')).toBeTruthy()
+      fireEvent.click(queryByTestId('checkbox-action'))
+    })
   })
 })
 

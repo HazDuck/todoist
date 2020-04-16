@@ -13,7 +13,9 @@ export const SelectedProjectProvider = ({children}) => {
   const [selectedProject, setSelectedProject] = useState('INBOX')
   return (
     //pass in an object of values so i can pick out the value i want
-    <SelectedProjectContext.Provider value={{selectedProject, setSelectedProject}}>
+    <SelectedProjectContext.Provider 
+      //THIS IS WHAT THE CALLING USECONTEXT(CREATEDCONTEXT) WILL RETURN, THIS OBJECT OF VALS
+      value={{selectedProject, setSelectedProject}}>
       {children}
     </SelectedProjectContext.Provider>
   )
